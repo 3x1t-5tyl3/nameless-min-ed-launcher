@@ -399,7 +399,7 @@ let run settings launcherVersion cancellationToken = taskResult {
     Log.info("Logging in")
     let! getRunningTime = createGetRunningTime httpClient
     use! connection = login launcherVersion getRunningTime httpClient machineId settings.Platform lang |> TaskResult.mapError Login
-    Log.info $"Logged in via %s{settings.Platform.Name} as: %s{connection.Session.Name}"
+    Log.info $"Logged in via %s{settings.Platform.Name} as: REDACTED"
     
     Log.debug "Getting authorized products"    
     let applyFixes = AuthorizedProduct.fixDirectoryName productsDir settings.Platform Directory.Exists File.Exists
